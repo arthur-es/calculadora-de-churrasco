@@ -1,4 +1,5 @@
-document.getElementById("cc-btn-preparar-churrasco").addEventListener("submit", function(event){
-    alert("Preparando churrasco...")
+let formChurras = document.getElementById('cc-churras-form');
+console.log(formChurras);
+formChurras.addEventListener('submit', (event)=> {
     event.preventDefault();
-});
+});     
