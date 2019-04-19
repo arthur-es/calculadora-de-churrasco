@@ -20,7 +20,8 @@ function pegaElementosForm(){
     let carneMaminha = document.getElementById('tp-maminha').name;
     let carneCordeiro = document.getElementById('tp-cordeiro').name;
 
-    
+    //falta implementar logica, para checar se o checkbox está marcado, e se estive entao pegar o nome do checkbox marcado e 
+    //adicionar essa string ao array dentro de um objeto chamado Churrasco
 }
 
 function adicionaResultado(){
