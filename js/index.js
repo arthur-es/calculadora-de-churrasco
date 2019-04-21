@@ -1,11 +1,20 @@
 let formChurras = document.getElementById('cc-churras-form');
 let resultadoChurrasDiv = document.getElementById('resultadoChurras');
-//console.log(formChurras);
+
 formChurras.addEventListener('submit', (event)=> {
     event.preventDefault();
     console.log("Preparando churrasco...");
-    fazPaginaComLista();
+    fetchItemsLista();
 });     
+
+function fetchItemsLista(){
+
+    let checkBoxesDaPagina = pegaCheckboxesDaPagina(); 
+    let nomeItemsMarcados = pegaNomeCheckboxMarcados(checkBoxesDaPagina);
+
+    armazenaItemsDaLista(nomeItemsMarcados);
+
+}
 
 function pegaElementosForm(){
     let adultos = document.getElementById('pessoasInput').value;
@@ -44,20 +53,34 @@ function pegaCheckboxesDaPagina(){
     ];
 }
 
-function pegaCheckboxMarcados(items){
+function pegaNomeCheckboxMarcados(items){
     let itemsChecados = [];
     items.forEach(item => {
         if(item.checked == true){
-            console.log("Item checado: " + item.name);
+            //console.log("Item checado: " + item.name);
             itemsChecados.push(item.name);
         }
     });
     return itemsChecados;
 }
 
+function armazenaItemsDaLista(ItemsLista){
+    if(localStorage.getItem('ItemsLista') == null){
+        console.log("Criando JSON com os itens da lista...");
+        let ItemsLista = [];
+        ItemsLista.push(ItemsLista);
+        localStorage.setItem('ItemsLista', JSON.stringify(ItemsLista));
+    } else {
+        console.log("Recuperando JSON do localStorage e adicionando itens...");
+        let ItemsLista = JSON.parse(localStorage.getItem('ItemsLista'));
+        ItemsLista.push(ItemsLista);
+        localStorage.setItem('ItemsLista', JSON.stringify(ItemsLista));
+    }
+}
+
 function fazPaginaComLista(){
-    let opened = window.open("teste");
-    opened.document.write("<html><head><title>Hello pagina novaa linda</title></head><body>testeoaooasodkas</body></html>");
+    let pagListaChurrasco = window.open("pages/lista.html");
+    //opened.document.write();
     //opened.print();
 }
 
