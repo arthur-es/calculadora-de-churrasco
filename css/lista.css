@@ -5,7 +5,7 @@
 
 div {
     margin-top: 20px;
-    margin-left: 18%;
+    margin-left: 20%;
 }
 
 ul {
@@ -35,4 +35,14 @@ li {
 li:hover {
     background: #eee;
     cursor: pointer;
+}
+
+/*esconde as coisas*/
+@page {
+    size: auto;
+    margin: 0;
+}
+
+.botaoEscondido {
+    display: none;
 }
