@@ -67,14 +67,16 @@ function pegaNomeCheckboxMarcados(items){
 function armazenaItemsDaLista(ItemsLista){
     if(localStorage.getItem('ItemsLista') == null){
         console.log("Criando JSON com os itens da lista...");
-        let ItemsLista = [];
+        localStorage.setItem('ItemsLista', JSON.stringify(ItemsLista));
+    } else if(0){
+        console.log("Recuperando JSON do localStorage e adicionando itens...");
+        let ItemsLista = JSON.parse(localStorage.getItem('ItemsLista'));
+        console.log(typeof(ItemsLista));
         ItemsLista.push(ItemsLista);
         localStorage.setItem('ItemsLista', JSON.stringify(ItemsLista));
     } else {
-        console.log("Recuperando JSON do localStorage e adicionando itens...");
-        let ItemsLista = JSON.parse(localStorage.getItem('ItemsLista'));
-        ItemsLista.push(ItemsLista);
-        localStorage.setItem('ItemsLista', JSON.stringify(ItemsLista));
+        localStorage.clear();
+        armazenaItemsDaLista(ItemsLista);
     }
 }
 
