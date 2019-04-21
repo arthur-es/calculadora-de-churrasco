@@ -5,6 +5,7 @@ formChurras.addEventListener('submit', (event)=> {
     event.preventDefault();
     console.log("Preparando churrasco...");
     fetchItemsLista();
+    fazPaginaComLista();
 });     
 
 function fetchItemsLista(){
@@ -83,6 +84,5 @@ function armazenaItemsDaLista(ItemsLista){
 function fazPaginaComLista(){
     let pagListaChurrasco = window.open("pages/lista.html");
     //opened.document.write();
-    //opened.print();
 }
 
