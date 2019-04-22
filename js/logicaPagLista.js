@@ -9,10 +9,10 @@ buttonImprimirLista.addEventListener('click', (event)=> {
 
 function escondeBotao(){
     buttonImprimirLista.classList.add('botaoEscondido');
-
+    debugger
     setInterval(function(){ 
         mostraBotao();
-    }, 1000);
+    }, 3000);
 }
 
 function mostraBotao() {
