@@ -88,13 +88,13 @@ function armazenaQtdPessoas(qtdAdultos,qtdCriancas){
     let qtdPessoas = [qtdAdultos, qtdCriancas];
 
     if(localStorage.getItem('qtdPessoas') == null){
-        console.log("Criando JSON com os qtdPessoas...");
+        console.log("Criando JSON com a qtdPessoas...");
         localStorage.setItem('qtdPessoas', JSON.stringify(qtdPessoas));
     } else {
         localStorage.removeItem("qtdPessoas");
-        armazenaQtdPessoas(qtdPessoas);
+        armazenaQtdPessoas(qtdAdultos, qtdCriancas);
     }
-
+    debugger
 }
 
 function armazenaItensDaLista(ItensLista){
