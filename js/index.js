@@ -6,7 +6,7 @@ formChurras.addEventListener('submit', (event)=> {
     console.log("Preparando churrasco...");
     fetchItensLista();
     fetchPessoas();
-    //fazPaginaComLista();
+    fazPaginaComLista();
 });     
 
 function fetchItensLista(){

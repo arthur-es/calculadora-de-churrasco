@@ -8,7 +8,6 @@ buttonImprimirLista.addEventListener('click', (event)=> {
 
 function escondeBotao(){
     buttonImprimirLista.classList.add('botaoEscondido');
-    debugger
     setInterval(function(){ 
         mostraBotao();
     }, 3000);
@@ -19,8 +18,10 @@ function mostraBotao() {
 }
 
 let ItensLista = JSON.parse(localStorage.getItem('ItensLista'));
+let QtdPessoas = JSON.parse(localStorage.getItem('qtdPessoas'));
 
 let divChurrascao = document.getElementById("listaChurrascao");
+let divAviso = document.getElementById("divAviso");
 
 ItensLista.forEach(item => {
     console.log("Item da vez: " + item);
@@ -28,4 +29,9 @@ ItensLista.forEach(item => {
     divChurrascao.appendChild(itemNovo);
 });
 
-
+let pAvisoQtdPessoas = document.createElement('p');
+pAvisoQtdPessoas.setAttribute('class', 'pAvisoQtdPessoas');
+pAvisoQtdPessoas.textContent = "*Esse churrasco foi planejado levando em consideração a presença de " + QtdPessoas[0] 
+                                + " adultos e " + QtdPessoas[1] + " crianças.";
+divAviso.appendChild(pAvisoQtdPessoas);
+    

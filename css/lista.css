@@ -12,6 +12,11 @@ div {
     margin-left: 20%;
 }
 
+a{
+    text-decoration: none;
+    color: #FAAB1A;
+}
+
 ul {
     list-style-type: none;
     width: 500px;
@@ -42,7 +47,7 @@ li:hover {
 }
 
 #headerLista{
-    text-align: center;
+    width: 400px;
 }
 
 /*esconde as coisas*/
@@ -69,4 +74,13 @@ li:hover {
 #listaChurrascao {
     align-content: left;
     text-align: left;
+}
+
+.pAvisoQtdPessoas {
+    width: 100%;
+    padding: 10px;
+    background-color: #FAAB1A;
+}
+#divAviso {
+    width: 485px;
 }
