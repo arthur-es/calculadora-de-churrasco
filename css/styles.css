@@ -20,12 +20,12 @@ https://colorhunt.co/palette/42533
 .cc-form-tipos-carnes {
     color: #384259;
 }
-.footer-container{
-    width: 100%;
-    background-color: #7ac7c4;
-    padding-top: 1.2rem;
-    padding-bottom: 0.5rem;
+
+#pessoasCampo{
+  color: #fff;
+  font-weight: 600;
 }
+
 input[type=text], select {
     width: 100%;
     padding: 12px 20px;
@@ -79,4 +79,8 @@ input[type=text], select {
 
 #imgTitulo{
     width: 80px;
+}
+
+.cardHeader{
+  padding-bottom: 60px;
 }

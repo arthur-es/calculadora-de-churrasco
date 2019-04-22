@@ -6,7 +6,6 @@ buttonImprimirLista.addEventListener('click', (event)=> {
     this.print();
 }); 
 
-
 function escondeBotao(){
     buttonImprimirLista.classList.add('botaoEscondido');
     debugger
@@ -19,11 +18,9 @@ function mostraBotao() {
     buttonImprimirLista.classList.remove('botaoEscondido');
 }
 
-
 let ItensLista = JSON.parse(localStorage.getItem('ItemsLista'));
 
 let divChurrascao = document.getElementById("listaChurrascao");
-
 
 ItensLista.forEach(item => {
     console.log("Item da vez: " + item);
@@ -31,6 +28,4 @@ ItensLista.forEach(item => {
     divChurrascao.appendChild(itemNovo);
 });
 
-
-//this.print();
 

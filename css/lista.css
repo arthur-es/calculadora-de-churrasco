@@ -2,6 +2,10 @@
     margin: 0;
     padding: 0;
 }
+body {
+    font-family: 'Lato', sans-serif;
+    width: 50%;
+}
 
 div {
     margin-top: 20px;
@@ -37,6 +41,10 @@ li:hover {
     cursor: pointer;
 }
 
+#headerLista{
+    text-align: center;
+}
+
 /*esconde as coisas*/
 @page {
     size: auto;
@@ -56,4 +64,9 @@ li:hover {
     display: none;
     margin: 0;
     width: 0px;
+}
+
+#listaChurrascao {
+    align-content: left;
+    text-align: left;
 }
