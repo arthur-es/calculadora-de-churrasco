@@ -4,22 +4,40 @@ let resultadoChurrasDiv = document.getElementById('resultadoChurras');
 formChurras.addEventListener('submit', (event)=> {
     event.preventDefault();
     console.log("Preparando churrasco...");
-    fetchItemsLista();
-    fazPaginaComLista();
+    fetchItensLista();
+    fetchPessoas();
+    //fazPaginaComLista();
 });     
 
-function fetchItemsLista(){
+function fetchItensLista(){
 
     let checkBoxesDaPagina = pegaCheckboxesDaPagina(); 
-    let nomeItemsMarcados = pegaNomeCheckboxMarcados(checkBoxesDaPagina);
+    let nomeItensMarcados = pegaNomeCheckboxMarcados(checkBoxesDaPagina);
 
-    armazenaItemsDaLista(nomeItemsMarcados);
+    armazenaItensDaLista(nomeItensMarcados);
 
 }
 
-function pegaElementosForm(){
-    let adultos = document.getElementById('pessoasInput').value;
-    let criancas = document.getElementById('criancasInput').value;
+function fetchPessoas(){
+    let qtdAdultos = pegaElementosForm("adultos");
+    let qtdCriancas = pegaElementosForm("criancas");
+
+    armazenaQtdPessoas(qtdAdultos, qtdCriancas);
+}
+
+function pegaElementosForm(stringQuem){
+
+    if(stringQuem === 'adultos'){
+        let adultos = document.getElementById('pessoasInput').value;
+        console.log("Sao " + adultos + " adultos.")
+        return adultos;
+
+    } else if( stringQuem === 'criancas'){
+        let criancas = document.getElementById('criancasInput').value;
+        console.log("Sao " + criancas + " crianças.")
+        return criancas;
+    }
+    return -1;
 }
 
 function pegaCheckboxesDaPagina(){
@@ -54,30 +72,38 @@ function pegaCheckboxesDaPagina(){
     ];
 }
 
-function pegaNomeCheckboxMarcados(items){
-    let itemsChecados = [];
-    items.forEach(item => {
+function pegaNomeCheckboxMarcados(itens){
+    let itensChecados = [];
+    itens.forEach(item => {
         if(item.checked == true){
             //console.log("Item checado: " + item.name);
-            itemsChecados.push(item.name);
+            itensChecados.push(item.name);
         }
     });
-    return itemsChecados;
+    return itensChecados;
 }
 
-function armazenaItemsDaLista(ItemsLista){
-    if(localStorage.getItem('ItemsLista') == null){
-        console.log("Criando JSON com os itens da lista...");
-        localStorage.setItem('ItemsLista', JSON.stringify(ItemsLista));
-    } else if(0){
-        console.log("Recuperando JSON do localStorage e adicionando itens...");
-        let ItemsLista = JSON.parse(localStorage.getItem('ItemsLista'));
-        console.log(typeof(ItemsLista));
-        ItemsLista.push(ItemsLista);
-        localStorage.setItem('ItemsLista', JSON.stringify(ItemsLista));
+function armazenaQtdPessoas(qtdAdultos,qtdCriancas){
+
+    let qtdPessoas = [qtdAdultos, qtdCriancas];
+
+    if(localStorage.getItem('qtdPessoas') == null){
+        console.log("Criando JSON com os qtdPessoas...");
+        localStorage.setItem('qtdPessoas', JSON.stringify(qtdPessoas));
     } else {
-        localStorage.clear();
-        armazenaItemsDaLista(ItemsLista);
+        localStorage.removeItem("qtdPessoas");
+        armazenaQtdPessoas(qtdPessoas);
+    }
+
+}
+
+function armazenaItensDaLista(ItensLista){
+    if(localStorage.getItem('ItensLista') == null){
+        console.log("Criando JSON com os itens da lista...");
+        localStorage.setItem('ItensLista', JSON.stringify(ItensLista));
+    } else {
+        localStorage.removeItem("ItensLista");
+        armazenaItensDaLista(ItensLista);
     }
 }
 

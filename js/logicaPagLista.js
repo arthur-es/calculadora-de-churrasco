@@ -18,13 +18,13 @@ function mostraBotao() {
     buttonImprimirLista.classList.remove('botaoEscondido');
 }
 
-let ItensLista = JSON.parse(localStorage.getItem('ItemsLista'));
+let ItensLista = JSON.parse(localStorage.getItem('ItensLista'));
 
 let divChurrascao = document.getElementById("listaChurrascao");
 
 ItensLista.forEach(item => {
     console.log("Item da vez: " + item);
-    let itemNovo = new Lista(item, "../img/steak.png");
+    let itemNovo = new Lista(item, "../img/check-box-empty.png");
     divChurrascao.appendChild(itemNovo);
 });
 
