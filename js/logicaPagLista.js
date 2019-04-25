@@ -6,6 +6,9 @@ buttonImprimirLista.addEventListener('click', (event)=> {
     this.print();
 }); 
 
+let qtdCarnePorAdultoKg = 0.500;
+let qtdCarnePorCriancaKg = 0.250;
+
 function escondeBotao(){
     buttonImprimirLista.classList.add('botaoEscondido');
     setInterval(function(){ 
@@ -31,7 +34,16 @@ ItensLista.forEach(item => {
 
 let pAvisoQtdPessoas = document.createElement('p');
 pAvisoQtdPessoas.setAttribute('class', 'pAvisoQtdPessoas');
-pAvisoQtdPessoas.textContent = "*Esse churrasco foi planejado levando em consideração a presença de " + QtdPessoas[0] 
-                                + " adultos e " + QtdPessoas[1] + " crianças.";
+pAvisoQtdPessoas.textContent = `Recomendamos comprar ${recomendacaoQtdComprarCarne(qtdCarnePorAdultoKg, qtdCarnePorCriancaKg)} Kg de carne. 
+                                Distribuido de acordo com sua preferência.
+                                *Esse churrasco foi planejado levando em consideração a presença de ${QtdPessoas[0]} 
+                                adulto(s) e ${QtdPessoas[1]} criança(s).`;
 divAviso.appendChild(pAvisoQtdPessoas);
-    
+
+function recomendacaoQtdComprarCarne(qtdCarnePorAdultoKg,qtdCarnePorCriancaKg) {
+
+    qtdCAdulto = QtdPessoas[0] * qtdCarnePorAdultoKg;
+    qtdCCrianca = QtdPessoas[1] * qtdCarnePorCriancaKg;
+
+    return qtdCAdulto + qtdCCrianca;
+}

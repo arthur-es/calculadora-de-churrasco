@@ -12,7 +12,7 @@ class Lista extends HTMLElement {
                 <span>
                     <img src="${this.icone}">
                 <span>
-                <p> ${this.nome} </p>
+                <p class="nomeNaLista"> ${this.nome} </p>
             </li>
         </ul>
         `;

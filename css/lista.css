@@ -56,6 +56,16 @@ li:hover {
     margin: 0;
 }
 
+h1 {
+    color: #FAAB1A;
+}
+
+
+.nomeNaLista{
+    font-family: 'Lato', sans-serif;
+    padding-top: 4px;
+}
+
 .btn-imprimir {
     width: 500px;
     padding: 12px 20px;
